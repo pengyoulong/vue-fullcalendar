@@ -38,7 +38,10 @@
             <div class="events-day" v-for="day in week" track-by="$index"
                  :class="{'today' : day.isToday,
               'not-cur-month' : !day.isCurMonth}" @click.stop="dayClick(day.date, $event)">
+              <div style="display:flex;justify-content: space-between;align-items: center">
+              <p>休</p>
               <p class="day-number">{{day.monthDay}}</p>
+              </div>
               <div class="event-box">
                 <event-card :event="event" :date="day.date" :firstDay="firstDay" v-for="event in day.events" v-show="event.cellIndex <= eventLimit" @click="eventClick">
                   <template scope="p">
